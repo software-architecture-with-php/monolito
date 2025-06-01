@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Produtos</title>
+</head>
+<body>
+
+<!-- Lista de produtos -->
+<h2>Produtos</h2>
+<ul>
+    <? php
+    // Inclui o arquivo que busca os dados dos produtos
+    require_once 'lista_produto.php'; 
+
+    foreach ($produtos as $produto): ?>
+        <li><?= htmlspecialchars($produto['nome']) ?> - R$ <?= $produto['preco'] ?></li>
+    <?php endforeach; ?>
+    <?php if (empty($produtos)): ?>
+        <li>Nenhum produto cadastrado.</li>
+    <?php endif; ?>
+</ul>
+
+</body>
+</html>
